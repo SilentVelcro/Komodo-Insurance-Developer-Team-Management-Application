@@ -1,0 +1,6 @@
+C:\ElevenFiftyProjects\Komodo Insurance Application\Repository\bin\Debug\Repository.dll
+C:\ElevenFiftyProjects\Komodo Insurance Application\Repository\bin\Debug\Repository.pdb
+C:\ElevenFiftyProjects\Komodo Insurance Application\Repository\obj\Debug\Repository.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\Komodo Insurance Application\Repository\obj\Debug\Repository.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\Komodo Insurance Application\Repository\obj\Debug\Repository.dll
+C:\ElevenFiftyProjects\Komodo Insurance Application\Repository\obj\Debug\Repository.pdb
