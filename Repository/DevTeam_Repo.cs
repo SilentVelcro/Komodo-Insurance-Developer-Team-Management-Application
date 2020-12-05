@@ -87,6 +87,21 @@ namespace Repository
                 return false;
             }
         }
+        public bool RemoveDeveloperFromTeam(int teamID, Dev removeDeveloper)
+        {
+            DevTeam DeleteTeamMember = GetTeamById(teamID);
+
+            if (DeleteTeamMember != null)
+            {
+                DeleteTeamMember.TeamMembers.Remove(removeDeveloper);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         //HELP!
         private DevTeam GetTeamByName(string teamname)

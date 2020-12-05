@@ -35,7 +35,8 @@ namespace DevConsole
                     "7. Add Developer to a Team\n" +
                     "8. Need Pluralsight Access\n" +
                     "9. View Team by ID#\n" +
-                    "10. Exit");
+                    "10. Remove a Developer From a Team\n" +
+                    "11. Exit");
 
                 string input = Console.ReadLine();
 
@@ -69,6 +70,9 @@ namespace DevConsole
                         ViewTeamByTeamId();
                         break;
                     case "10":
+                        RemoveADeveloperFromATeam();
+                        break;
+                    case "11":
                         Console.WriteLine("Goodbye!");
                         keepRunning = false;
                         break;
@@ -268,6 +272,7 @@ namespace DevConsole
                 Console.WriteLine("{0}", devName.DevName);
             }
         }
+        //9. View Team by ID
         public void ViewTeamByTeamId()
         {
             Console.WriteLine("Please enter Team ID# to view members of that team.");
@@ -288,6 +293,33 @@ namespace DevConsole
 
         }
 
+        public void RemoveADeveloperFromATeam()
+        {
+            Console.Clear();
+            DisplayAllDeveloperTeams();
+
+            Console.WriteLine("Enter the Team ID# that you would like remove a developer from:");
+            int teamID = int.Parse(Console.ReadLine());
+
+            Console.Clear();
+
+            Console.WriteLine("Enter the ID# of the developer that you would like to remove from the team.");
+            int IdNumber = int.Parse(Console.ReadLine());
+
+            Dev removeDeveloper = _developerRepo.GetEmployeeById(IdNumber);
+
+            bool wasUpdated = _teamRepo.RemoveDeveloperFromTeam(teamID, removeDeveloper);
+            if (wasUpdated)
+            {
+                Console.WriteLine("Team successfully updated!");
+            }
+            else
+            {
+                Console.WriteLine("Could not update Team.");
+            }
+        }
+
+
         //see method
         private void SeeDeveloperList()
         {
@@ -304,7 +336,7 @@ namespace DevConsole
             teamBlack.Add(quentinTarantino);
             teamBlack.Add(harveyKeitel);
 
-            DevTeam orangeTeam = new DevTeam("Orange Team", 666, teamOrange);
+            DevTeam orangeTeam = new DevTeam("Orange Team", 777, teamOrange);
             DevTeam blackTeam = new DevTeam("Black Team", 999, teamBlack);
             _teamRepo.AddDevTeamToList(orangeTeam);
             _teamRepo.AddDevTeamToList(blackTeam);
